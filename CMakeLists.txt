@@ -11,7 +11,9 @@ SET(SRCS
 	pm_core.c
 	pm_lsensor.c
 	pm_key_filter.c
-	pm_battery.c )
+	pm_battery.c
+	log.c
+	app_analyzer.c)
 
 IF("${CMAKE_BUILD_TYPE}" STREQUAL "")
 	SET(CMAKE_BUILD_TYPE "Release")
