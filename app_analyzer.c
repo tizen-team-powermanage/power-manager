@@ -61,7 +61,9 @@ void *analyzer_function(void *data)
 
 void battinfo_caculation()
 {
-
+	int capacity=10000;
+	capacity = get_battery_capacity();
+	check_pwsaving_mode(capacity);
 }
 
 int set_battinfo_gathering()

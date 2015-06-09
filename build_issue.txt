@@ -68,7 +68,7 @@ repos=repo.tizen2.2.base, repo.tizen2.2.main
  
 [power-manager 빌드 이슈]
 
-3. 디바이스에서 설치시 오류 발생
+3. 디바이스에서 rpm 설치시 오류 발생
 
 sh-4.1# rpm -Uvh --nodeps --force power-manager-1.3.23-9.armv7l.rpm
 
@@ -88,8 +88,11 @@ Error!     create key memory/pm/current_brt
 Key already exist. Use -f option to force update
 Error!     create key memory/pm/sip_status
 
+[해결방법]
+위의 오류가 발생하여도 실행에는 문제가 없으나 열거된 모듈을 사용해야 할 경우 문제 발생 가능성이 있음
+
 [기타]
-4.  rpm 빌드시 모든 설치 파일에서 오류 발생
+4.  rpm 설치 파일에서 오류 발생
 
 1) sh-4.1# rpm -Uvh --nodeps --force power-manager-1.3.23-9.armv7l.rpm 
     위의 파일 이외의 파일도 동일 증상
@@ -102,7 +105,7 @@ rpmdb: Thread/process xxxxx/xxxxxxx failed: Thread died in Berkeley DB library
 2) rpm --rebuilddb
 
 
-5.   rpm 빌드시 모든 설치 파일에서 오류 발생 
+5.   rpm 설치 오류 발생 
 sh-4.1# rpm -Uvh --nodeps --force power-manager-1.3.23-9.armv7l.rpm
 
 [증상]
@@ -114,11 +117,20 @@ error: Failed to process sw sources from /etc/device-sec-policy
 [해결방법]
 이전에 복사해둔 platform.img 파일에서 /etc/device-sec-policy  파일을 복사.
 
-6. rpm 빌드시 모든 설치 파일에서 오류 발생  
-sh-4.1# rpm -Uvh --nodeps --force power-manager-1.3.23-9.armv7l.rpm 
+6. rpm  설치 오류 발생  
+sh-4.1# rpm -Uvh --nodeps --force power-manager-1.3.23-9.armv7l.rpm
+
+정상 
+[증상] 
 [   96s] RPM build errors:
 [   96s]     File must begin with "/": Apache-2.0
 [   96s]     File must begin with "/": LICENSE.APLv2
 
 동일이슈 : https://developer.tizen.org/ko/forums/general-support/unable-build-platform-calendar-core-app?langswitch=ko
+
+[해결방법]
+찾지 못함
+
+
+
 
