@@ -23,6 +23,9 @@
 #include "pm_core.h"
 #include "pm_battery.h"
 
+#include "log.h"
+#include "app_analyzer.h"
+
 #define CHARGING_STATE(x)	((x) & CHRGR_FLAG)
 #define FULL_CAPACITY_RAW	(10000)
 #define FULL_CAPACITY		(100)
@@ -288,6 +291,9 @@ void battinfo_calculation()
 		return;
 
 	old_capacity = capacity;
+
+	DBG("battinfo_calculation : capacity = %d ",capacity);
+	check_pwsaving_mode(capacity);
 
 	if(get_charging_status(&tmp) == 0)
 		charging_state = (tmp > 0 ? TRUE : FALSE);
